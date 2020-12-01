@@ -121,7 +121,9 @@ jobs:
       - checkout
       - run:
           name: Heroku Deploy
-          command: git push heroku main
+          command: |
+            git remote add heroku $GIT_HEROKU_URL
+            git push heroku main
       - run:
           name: Smoke Test
           command : | 
